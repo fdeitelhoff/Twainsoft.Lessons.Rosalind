@@ -10,7 +10,7 @@ namespace Twainsoft.Lessons.Rosalind.Tests.DNA
     public class CountingNucleotidesTests
     {
         [TestMethod]
-        public void SampleDatasetTest()
+        public void NucleotidesCountTest()
         {
             // Arrange
             string dna = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";

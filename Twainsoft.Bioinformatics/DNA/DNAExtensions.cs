@@ -39,6 +39,11 @@ namespace Twainsoft.Bioinformatics.DNA
             return nucleotidesCount;   
         }
 
+        /// <summary>
+        /// Takes a DNA String (alphabet with symbols A, C, G and T) and returns a RNA string (replaces T with U).
+        /// </summary>
+        /// <param name="dna">The DNA String.</param>
+        /// <returns>A RNA string with the symbols A, C, G and U.</returns>
         public static string TranscribeRNA(this string dna)
         {
             return dna.Trim().Replace('T', 'U');
