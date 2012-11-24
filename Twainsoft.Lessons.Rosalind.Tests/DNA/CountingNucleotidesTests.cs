@@ -13,17 +13,14 @@ namespace Twainsoft.Lessons.Rosalind.Tests.DNA
         public void NucleotidesCountTest()
         {
             // Arrange
-            string dna = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
-            Dictionary<char, int> expectedResult = new Dictionary<char, int>() 
+            var dna = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+            var expectedResult = new Dictionary<char, int>() 
             { 
-                { 'A', 20 },
-                { 'C', 12 },
-                { 'G', 17 },
-                { 'T', 21 }
+                { 'A', 20 }, { 'C', 12 }, { 'G', 17 }, { 'T', 21 }
             };
 
             // Act
-            Dictionary<char, int> actualResult = dna.NucleotidesCount();
+            var actualResult = dna.NucleotidesCount();
 
             // Assert
             CollectionAssert.AreEqual(expectedResult, actualResult);

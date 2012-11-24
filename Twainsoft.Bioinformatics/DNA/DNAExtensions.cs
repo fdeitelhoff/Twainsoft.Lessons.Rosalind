@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Twainsoft.Bioinformatics.Exceptions;
 
 namespace Twainsoft.Bioinformatics.DNA
 {
@@ -16,27 +16,17 @@ namespace Twainsoft.Bioinformatics.DNA
         /// <returns>A dictionary with the symbol count per nucleotide.</returns>
         public static Dictionary<char, int> NucleotidesCount(this string dna)
         {
-            Dictionary<char, int> nucleotidesCount = new Dictionary<char, int>(4);
-            nucleotidesCount.Add('A', 0);
-            nucleotidesCount.Add('C', 0);
-            nucleotidesCount.Add('G', 0);
-            nucleotidesCount.Add('T', 0);
-
-            dna = dna.Trim();
-
-            foreach (var symbol in dna)
+            var nucleotidesCount = new Dictionary<char, int>(4)
             {
-                if (nucleotidesCount.ContainsKey(symbol))
-                {
-                    nucleotidesCount[symbol]++;
-                }
-                else
-                {
-                    throw new InvalidDNAException();
-                }
-            } 
+                {'A', 0}, {'C', 0}, { 'G', 0}, {'T', 0}
+            };
 
-            return nucleotidesCount;   
+            foreach (var symbol in dna.Trim())
+            {
+                nucleotidesCount[symbol]++;
+            }
+
+            return nucleotidesCount;
         }
 
         /// <summary>
