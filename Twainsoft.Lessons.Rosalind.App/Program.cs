@@ -22,12 +22,21 @@ namespace Twainsoft.Lessons.Rosalind.App
             //Console.ReadLine();
 
             // The RNA problem. 
-            var dna = File.ReadAllText(@"Data\RNA\rosalind_rna.txt");
+            //var dna = File.ReadAllText(@"Data\RNA\rosalind_rna.txt");
 
-            var rna = dna.TranscribeRNA();
+            //var rna = dna.TranscribeRNA();
              
-            Console.WriteLine(rna);
-            SaveResult(@"Results\rosalind_rna_results.txt", rna);
+            //Console.WriteLine(rna);
+            //SaveResult(@"Results\rosalind_rna_results.txt", rna);
+            //Console.ReadLine();
+
+            // The revc problem.
+            var dna = File.ReadAllText(@"Data\REVC\rosalind_revc.txt");
+
+            var reverseComplement = dna.ReverseComplementDNA();
+
+            Console.WriteLine(reverseComplement);
+            SaveResult(@"Results\rosalind_revc_results.txt", reverseComplement);
             Console.ReadLine();
         }
 

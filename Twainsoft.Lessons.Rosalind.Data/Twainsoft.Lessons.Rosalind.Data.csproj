@@ -45,6 +45,9 @@
     <Content Include="Data\DNA\rosalind_dna.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\REVC\rosalind_revc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\RNA\rosalind_rna.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
