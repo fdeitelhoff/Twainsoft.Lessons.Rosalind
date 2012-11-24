@@ -11,14 +11,30 @@ namespace Twainsoft.Lessons.Rosalind.App
     class Program
     {
         static void Main(string[] args)
-        {
-            var dna = File.ReadAllText(@"Data\DNA\rosalind_dna.txt");
+        { 
+            // The DNA problem.
+            //var dna = File.ReadAllText(@"Data\DNA\rosalind_dna.txt");
 
-            Dictionary<char, int> nucleotidesCount = dna.NucleotidesCount();
+            //Dictionary<char, int> nucleotidesCount = dna.NucleotidesCount();
 
-            Console.Write(String.Format("{0} {1} {2} {3}", nucleotidesCount['A'],
-                nucleotidesCount['C'], nucleotidesCount['G'], nucleotidesCount['T']));
+            //Console.Write(String.Format("{0} {1} {2} {3}", nucleotidesCount['A'],
+            //    nucleotidesCount['C'], nucleotidesCount['G'], nucleotidesCount['T']));
+            //Console.ReadLine();
+
+            // The RNA problem. 
+            var dna = File.ReadAllText(@"Data\RNA\rosalind_rna.txt");
+
+            var rna = dna.TranscribeRNA();
+             
+            Console.WriteLine(rna);
+            SaveResult(@"Results\rosalind_rna_results.txt", rna);
             Console.ReadLine();
+        }
+
+        static void SaveResult(string path, string result)
+        {
+            File.WriteAllText(path, result, Encoding.Default);
+            Console.WriteLine(String.Format("Result saved to '{0}'!", path));
         }
     }
 }

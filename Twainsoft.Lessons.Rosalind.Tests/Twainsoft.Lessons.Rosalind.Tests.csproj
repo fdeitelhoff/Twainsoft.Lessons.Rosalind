@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DNA\TranscribeRNATests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DNA\CountingNucleotidesTests.cs" />
   </ItemGroup>

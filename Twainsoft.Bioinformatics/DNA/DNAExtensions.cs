@@ -38,5 +38,10 @@ namespace Twainsoft.Bioinformatics.DNA
 
             return nucleotidesCount;   
         }
+
+        public static string TranscribeRNA(this string dna)
+        {
+            return dna.Trim().Replace('T', 'U');
+        }
     }
 }
