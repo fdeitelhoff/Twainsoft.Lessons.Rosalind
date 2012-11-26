@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Twainsoft.Bioinformatics;
+using Twainsoft.Bioinformatics.Format;
 
 namespace Twainsoft.Lessons.Rosalind.App
 {
@@ -31,12 +32,35 @@ namespace Twainsoft.Lessons.Rosalind.App
             //Console.ReadLine();
 
             // The revc problem.
-            var dna = new DNA(File.ReadAllText(@"Data\REVC\rosalind_revc.txt"));
+            //var dna = new DNA(File.ReadAllText(@"Data\REVC\rosalind_revc.txt"));
 
-            var reverseComplement = dna.ReverseComplementDNA();
+            //var reverseComplement = dna.ReverseComplementDNA();
 
-            Console.WriteLine(reverseComplement);
-            SaveResult(@"Results\rosalind_revc_results.txt", reverseComplement.Symbols);
+            //Console.WriteLine(reverseComplement);
+            //SaveResult(@"Results\rosalind_revc_results.txt", reverseComplement.Symbols);
+
+            // The GC problem.
+            var fasta = new Fasta();
+            var entries = fasta.ReadEntries(@"Data\GC\rosalind_gc.txt");
+            var highestGCRatio = 0m;
+            var highestFastaLabel = "";
+
+            foreach (var entry in entries)
+            {
+                var ratio = entry.DNA.CalculateGCRatio();
+                if (ratio > highestGCRatio)
+                {
+                    highestGCRatio = ratio;
+                    highestFastaLabel = entry.Label;
+                }
+            }
+
+            highestGCRatio = Math.Round(highestGCRatio * 100, 6);
+
+            var result = String.Format("{0}\n{1}%", highestFastaLabel, highestGCRatio).Replace(',', '.');
+            Console.WriteLine(result);
+            SaveResult(@"Results\rosalind_gc_results.txt", result);
+
             Console.ReadLine();
         }
 

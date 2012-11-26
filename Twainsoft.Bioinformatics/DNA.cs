@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Twainsoft.Bioinformatics
@@ -55,6 +56,14 @@ namespace Twainsoft.Bioinformatics
             }
 
             return new DNA(reversedDNA.ToString());
+        }
+
+        public decimal CalculateGCRatio()
+        {
+            var regex = new Regex("[G|C]");
+            var matches = regex.Matches(Symbols);
+
+            return (decimal)matches.Count / Symbols.Length;
         }
 
         public override bool Equals(object obj)
