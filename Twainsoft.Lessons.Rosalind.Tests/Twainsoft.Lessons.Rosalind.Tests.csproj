@@ -50,16 +50,23 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DNA\TranscribeRNATests.cs" />
-    <Compile Include="DNA\ReverseComplementDNATests.cs" />
+    <Compile Include="TestCases\RNATests.cs" />
+    <Compile Include="TestCases\REVCTests.cs" />
+    <Compile Include="TestCases\GCTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DNA\CountingNucleotidesTests.cs" />
+    <Compile Include="TestCases\DNATests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Twainsoft.Bioinformatics\Twainsoft.Bioinformatics.csproj">
       <Project>{8fad2edb-1906-42e9-90b7-ba01f7942134}</Project>
       <Name>Twainsoft.Bioinformatics</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\GC\GC_SampleDataSet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

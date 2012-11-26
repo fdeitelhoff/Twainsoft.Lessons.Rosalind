@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Twainsoft.Bioinformatics\Twainsoft.Bioinformatics.csproj">
-      <Project>{f4be1fb3-241f-4c42-817f-300cb6860fb6}</Project>
+      <Project>{8fad2edb-1906-42e9-90b7-ba01f7942134}</Project>
       <Name>Twainsoft.Bioinformatics</Name>
     </ProjectReference>
     <ProjectReference Include="..\Twainsoft.Lessons.Rosalind.Data\Twainsoft.Lessons.Rosalind.Data.csproj">

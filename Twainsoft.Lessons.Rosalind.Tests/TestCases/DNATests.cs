@@ -1,19 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Twainsoft.Bioinformatics.DNA;
 using System.IO;
+using Twainsoft.Bioinformatics;
 
-namespace Twainsoft.Lessons.Rosalind.Tests.DNA
+namespace Twainsoft.Lessons.Rosalind.TestCases
 {
     [TestClass]
-    public class CountingNucleotidesTests
+    public class DNATests
     {
         [TestMethod]
         public void NucleotidesCountTest()
         {
             // Arrange
-            var dna = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+            var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
             var expectedResult = new Dictionary<char, int>() 
             { 
                 { 'A', 20 }, { 'C', 12 }, { 'G', 17 }, { 'T', 21 }

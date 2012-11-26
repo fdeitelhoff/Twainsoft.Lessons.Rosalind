@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Twainsoft.Bioinformatics.DNA;
+using Twainsoft.Bioinformatics;
 
 namespace Twainsoft.Lessons.Rosalind.App
 {
@@ -31,12 +31,12 @@ namespace Twainsoft.Lessons.Rosalind.App
             //Console.ReadLine();
 
             // The revc problem.
-            var dna = File.ReadAllText(@"Data\REVC\rosalind_revc.txt");
+            var dna = new DNA(File.ReadAllText(@"Data\REVC\rosalind_revc.txt"));
 
             var reverseComplement = dna.ReverseComplementDNA();
 
             Console.WriteLine(reverseComplement);
-            SaveResult(@"Results\rosalind_revc_results.txt", reverseComplement);
+            SaveResult(@"Results\rosalind_revc_results.txt", reverseComplement.Symbols);
             Console.ReadLine();
         }
 
