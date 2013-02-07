@@ -4,28 +4,26 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Twainsoft.Bioinformatics.Format
 {
     public class Fasta
     {
+        private Regex FastaFormatRegex { get; set; }
+
+        public Fasta()
+        {
+            FastaFormatRegex = new Regex(@">(?<Label>\w+)(\s*)(?<Sequence>[A-Za-z\s]+)", RegexOptions.Multiline);
+        }
+
         public List<FastaEntry> ReadEntries(string file)
         {
-            var entries = new List<FastaEntry>();
-
             var text = File.ReadAllText(file, Encoding.Default);
 
-            var regex = new Regex(@">(?<Label>\w+)(\s*)(?<Sequence>[A-Za-z\s]+)", RegexOptions.Multiline);
-            var matches = regex.Matches(text);
+            var matches = FastaFormatRegex.Matches(text);
 
-            foreach (Match match in matches)
-            {
-                entries.Add(new FastaEntry(match.Groups["Label"].Value, 
-                    new DNA(match.Groups["Sequence"].Value.Replace(Environment.NewLine, ""))));
-            }
-
-            return entries;
+            return (from Match match in matches select new FastaEntry(match.Groups["Label"].Value, 
+                new Dna(match.Groups["Sequence"].Value.Replace(Environment.NewLine, "")))).ToList();
         }
     }
 }

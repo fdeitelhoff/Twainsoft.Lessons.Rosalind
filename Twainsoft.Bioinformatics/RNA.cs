@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Twainsoft.Bioinformatics
+﻿namespace Twainsoft.Bioinformatics
 {
-    public class RNA
+    public class Rna
     {
-        public string Symbols { get; private set; }
+        private string Symbols { get; set; }
 
-        public RNA(string symbols)
+        public Rna(string symbols)
         {
             Symbols = symbols;
         }
 
         public override bool Equals(object obj)
         {
-            RNA rna = obj as RNA;
+            var rna = obj as Rna;
 
             if (rna == null)
             {
@@ -34,7 +28,7 @@ namespace Twainsoft.Bioinformatics
 
         public override string ToString()
         {
-            return Symbols.ToString();
+            return Symbols;
         }
     }
 }

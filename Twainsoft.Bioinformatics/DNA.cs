@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Twainsoft.Bioinformatics
 {
-    public class DNA
+    public class Dna
     {
-        public string Symbols { get; private set; }
+        private string Symbols { get; set; }
+        private IDictionary<char, char> NucleotidComplements { get; set; }
 
-        public static IDictionary<char, char> NucleotidComplements = new Dictionary<char, char>()
-        {
-            {'A', 'T'}, {'T', 'A'}, {'C', 'G'}, {'G', 'C'}
-        };
-
-        public DNA(string symbols)
+        public Dna(string symbols)
         {
             Symbols = symbols.Trim();
 
-            var nucleotidComplements = new Dictionary<char, char>()
-            {
+            NucleotidComplements = new Dictionary<char, char>
+                {
                 {'A', 'T'}, {'T', 'A'}, {'C', 'G'}, {'G', 'C'}
             };
         }
@@ -41,24 +34,24 @@ namespace Twainsoft.Bioinformatics
             return nucleotidesCount;
         }
 
-        public RNA TranscribeRNA()
+        public Rna TranscribeRna()
         {
-            return new RNA(Symbols.Replace('T', 'U'));
+            return new Rna(Symbols.Replace('T', 'U'));
         }
 
-        public DNA ReverseComplementDNA()
+        public Dna ReverseComplementDna()
         {
-            var reversedDNA = new StringBuilder(Symbols.Length);
+            var reversedDna = new StringBuilder(Symbols.Length);
 
-            for (int i = Symbols.Length - 1; i >= 0; i--)
+            for (var i = Symbols.Length - 1; i >= 0; i--)
             {
-                reversedDNA.Append(NucleotidComplements[Symbols[i]]);
+                reversedDna.Append(NucleotidComplements[Symbols[i]]);
             }
 
-            return new DNA(reversedDNA.ToString());
+            return new Dna(reversedDna.ToString());
         }
 
-        public decimal CalculateGCRatio()
+        public decimal CalculateGcRatio()
         {
             var regex = new Regex("[G|C]");
             var matches = regex.Matches(Symbols);
@@ -68,7 +61,7 @@ namespace Twainsoft.Bioinformatics
 
         public override bool Equals(object obj)
         {
-            DNA dna = obj as DNA;
+            var dna = obj as Dna;
 
             if (dna == null)
             {
@@ -85,7 +78,7 @@ namespace Twainsoft.Bioinformatics
 
         public override string ToString()
         {
-            return Symbols.ToString();
+            return Symbols;
         }
     }
 }

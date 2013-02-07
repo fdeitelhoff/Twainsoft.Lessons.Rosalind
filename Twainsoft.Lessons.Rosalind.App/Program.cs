@@ -47,7 +47,7 @@ namespace Twainsoft.Lessons.Rosalind.App
 
             foreach (var entry in entries)
             {
-                var ratio = entry.DNA.CalculateGCRatio();
+                var ratio = entry.Dna.CalculateGcRatio();
                 if (ratio > highestGCRatio)
                 {
                     highestGCRatio = ratio;

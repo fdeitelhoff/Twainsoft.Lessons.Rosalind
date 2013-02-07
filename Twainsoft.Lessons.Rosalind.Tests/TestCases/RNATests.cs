@@ -11,14 +11,14 @@ namespace Twainsoft.Lessons.Rosalind.TestCases
         public void TranscribeRNATest()
         {
             // Arrange
-            var dna = new DNA("GATGGAACTTGACTACGTAAATT");
-            var expectedRNA = new RNA("GAUGGAACUUGACUACGUAAAUU");
+            var dna = new Dna("GATGGAACTTGACTACGTAAATT");
+            var expectedRNA = new Rna("GAUGGAACUUGACUACGUAAAUU");
 
             // Act
-            var resultRNA = dna.TranscribeRNA();
+            var resultRNA = dna.TranscribeRna();
 
             // Assert
-            Assert.AreEqual<RNA>(expectedRNA, resultRNA);
+            Assert.AreEqual<Rna>(expectedRNA, resultRNA);
         }
     }
 }

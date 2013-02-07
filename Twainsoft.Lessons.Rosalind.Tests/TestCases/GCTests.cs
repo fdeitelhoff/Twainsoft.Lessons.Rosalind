@@ -24,7 +24,7 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases.GC
             var entries = fasta.ReadEntries(@"Data\GC\GC_SampleDataSet.txt");
             foreach (var entry in entries)
             {
-                var ratio = entry.DNA.CalculateGCRatio();
+                var ratio = entry.Dna.CalculateGcRatio();
                 if (ratio > highestGCRatio)
                 {
                     highestGCRatio = ratio;

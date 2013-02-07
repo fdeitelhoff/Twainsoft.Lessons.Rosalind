@@ -13,7 +13,7 @@ namespace Twainsoft.Lessons.Rosalind.TestCases
         public void NucleotidesCountTest()
         {
             // Arrange
-            var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
+            var dna = new Dna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
             var expectedResult = new Dictionary<char, int>() 
             { 
                 { 'A', 20 }, { 'C', 12 }, { 'G', 17 }, { 'T', 21 }

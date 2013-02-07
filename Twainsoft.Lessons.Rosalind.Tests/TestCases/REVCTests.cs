@@ -11,14 +11,14 @@ namespace Twainsoft.Lessons.Rosalind.TestCases
         public void ReversedDNATest()
         {
             // Arrange
-            var dna = new DNA("AAAACCCGGT");
-            var expectedDNA = new DNA("ACCGGGTTTT");
+            var dna = new Dna("AAAACCCGGT");
+            var expectedDNA = new Dna("ACCGGGTTTT");
 
             // Act
-            var resultDNA = dna.ReverseComplementDNA();
+            var resultDNA = dna.ReverseComplementDna();
 
             // Assert
-            Assert.AreEqual<DNA>(expectedDNA, resultDNA);
+            Assert.AreEqual<Dna>(expectedDNA, resultDNA);
         }
     }
 }
