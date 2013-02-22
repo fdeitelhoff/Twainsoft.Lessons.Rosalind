@@ -1,13 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.IO;
 using Twainsoft.Bioinformatics;
 
-namespace Twainsoft.Lessons.Rosalind.TestCases
+namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
     [TestClass]
-    public class DNATests
+    public class DnaTests
     {
         [TestMethod]
         public void NucleotidesCountTest()

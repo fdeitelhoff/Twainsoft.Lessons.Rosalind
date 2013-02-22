@@ -1,24 +1,23 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Twainsoft.Bioinformatics;
 
-namespace Twainsoft.Lessons.Rosalind.TestCases
+namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
     [TestClass]
-    public class REVCTests
+    public class RevcTests
     {
         [TestMethod]
-        public void ReversedDNATest()
+        public void ReversedDnaTest()
         {
             // Arrange
             var dna = new Dna("AAAACCCGGT");
-            var expectedDNA = new Dna("ACCGGGTTTT");
+            var expectedDna = new Dna("ACCGGGTTTT");
 
             // Act
-            var resultDNA = dna.ReverseComplementDna();
+            var resultDna = dna.ReverseComplementDna();
 
             // Assert
-            Assert.AreEqual<Dna>(expectedDNA, resultDNA);
+            Assert.AreEqual(expectedDna, resultDna);
         }
     }
 }

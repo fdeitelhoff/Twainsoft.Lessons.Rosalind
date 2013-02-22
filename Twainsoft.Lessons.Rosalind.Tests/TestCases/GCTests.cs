@@ -1,42 +1,41 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 using Twainsoft.Bioinformatics.Format;
 
-namespace Twainsoft.Lessons.Rosalind.Tests.TestCases.GC
+namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
     [TestClass]
-    public class GCContentTests
+    public class GcTests
     {
         [TestMethod]
         [DeploymentItem(@"Data\GC\GC_SampleDataSet.txt", @"Data\GC")]
-        public void GCTests()
+        public void GcContentTests()
         {
             // Arrange
             var fasta = new Fasta();
-            var entryCount = 3;
-            var highestGCRatio = 0m;
-            var expectedGCRatio = 60.919540m;
+            const int entryCount = 3;
+            var highestGcRatio = 0m;
+            const decimal expectedGcRatio = 60.919540m;
             var highestFastaLabel = "";
-            var expectedFastaLabel = "Rosalind_0808";
+            const string expectedFastaLabel = "Rosalind_0808";
 
             // Act
             var entries = fasta.ReadEntries(@"Data\GC\GC_SampleDataSet.txt");
             foreach (var entry in entries)
             {
                 var ratio = entry.Dna.CalculateGcRatio();
-                if (ratio > highestGCRatio)
+                if (ratio > highestGcRatio)
                 {
-                    highestGCRatio = ratio;
+                    highestGcRatio = ratio;
                     highestFastaLabel = entry.Label;
                 }
             }
 
-            highestGCRatio = Math.Round(highestGCRatio * 100, 6);
+            highestGcRatio = Math.Round(highestGcRatio * 100, 6);
 
             // Assert
             Assert.AreEqual<int>(entryCount, entries.Count);
-            Assert.AreEqual<decimal>(expectedGCRatio, highestGCRatio);
+            Assert.AreEqual<decimal>(expectedGcRatio, highestGcRatio);
             Assert.AreEqual<string>(expectedFastaLabel, highestFastaLabel);
         }
     }

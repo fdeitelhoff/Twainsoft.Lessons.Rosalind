@@ -1,24 +1,23 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Twainsoft.Bioinformatics;
 
-namespace Twainsoft.Lessons.Rosalind.TestCases
+namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
     [TestClass]
-    public class RNATests
+    public class RnaTests
     {
         [TestMethod]
-        public void TranscribeRNATest()
+        public void TranscribeRnaTest()
         {
             // Arrange
             var dna = new Dna("GATGGAACTTGACTACGTAAATT");
-            var expectedRNA = new Rna("GAUGGAACUUGACUACGUAAAUU");
+            var expectedRna = new Rna("GAUGGAACUUGACUACGUAAAUU");
 
             // Act
-            var resultRNA = dna.TranscribeRna();
+            var resultRna = dna.TranscribeRna();
 
             // Assert
-            Assert.AreEqual<Rna>(expectedRNA, resultRNA);
+            Assert.AreEqual(expectedRna, resultRna);
         }
     }
 }
