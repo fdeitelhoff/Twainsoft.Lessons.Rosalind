@@ -23,5 +23,20 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             // Assert
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void HammingDistanceTest()
+        {
+            // Arrange
+            var dna = new Dna("GAGCCTACTAACGGGAT");
+            var mutatedDna = new Dna("CATCGTAATGACGGCCT");
+            const int expectedMutationCount = 7;
+
+            // Act
+            var mutationCount = dna.HammingDistance(mutatedDna);
+
+            // Assert
+            Assert.AreEqual(expectedMutationCount, mutationCount);
+        }
     }
 }

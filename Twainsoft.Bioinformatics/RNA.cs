@@ -2,7 +2,7 @@
 {
     public class Rna
     {
-        private string Symbols { get; set; }
+        public string Symbols { get; private set; }
 
         public Rna(string symbols)
         {

@@ -48,6 +48,9 @@
     <None Include="Data\GC\rosalind_gc.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Data\HAMM\rosalind_hamm.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\REVC\rosalind_revc.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -6,7 +7,7 @@ namespace Twainsoft.Bioinformatics
 {
     public class Dna
     {
-        private string Symbols { get; set; }
+        public string Symbols { get; private set; }
         private IDictionary<char, char> NucleotidComplements { get; set; }
 
         public Dna(string symbols)
@@ -15,8 +16,8 @@ namespace Twainsoft.Bioinformatics
 
             NucleotidComplements = new Dictionary<char, char>
                 {
-                {'A', 'T'}, {'T', 'A'}, {'C', 'G'}, {'G', 'C'}
-            };
+                    { 'A', 'T' }, { 'T', 'A' }, { 'C', 'G' }, { 'G', 'C' }
+                };
         }
 
         public Dictionary<char, int> NucleotidesCount()
@@ -79,6 +80,11 @@ namespace Twainsoft.Bioinformatics
         public override string ToString()
         {
             return Symbols;
+        }
+
+        public int HammingDistance(Dna dna)
+        {
+            return Symbols.Where((t, i) => t != dna.Symbols[i]).Count();
         }
     }
 }
