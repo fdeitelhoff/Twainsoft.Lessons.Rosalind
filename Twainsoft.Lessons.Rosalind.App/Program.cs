@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Twainsoft.Bioinformatics;
 using Twainsoft.Bioinformatics.Format;
+using Twainsoft.Bioinformatics.Helper;
 
 namespace Twainsoft.Lessons.Rosalind.App
 {
@@ -26,7 +29,36 @@ namespace Twainsoft.Lessons.Rosalind.App
             // Solve the HAMM problem.
             SolveHamm();
 
+            // Solve the PERM problem.
+            SolvePerm();
+
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Solves the PERM problem (http://rosalind.info/problems/perm/).
+        /// </summary>
+        private static void SolvePerm()
+        {
+            var number = Convert.ToInt32(File.ReadAllText(@"Data\PERM\rosalind_perm.txt").Trim());
+            var toPermutate = new List<int>();
+            for (var i = 1; i <= number; i++)
+            {
+                toPermutate.Add(i);
+            }
+
+            var permutations = toPermutate.Permute();
+
+            var enumerable = permutations as IList<IEnumerable<int>> ?? permutations.ToList();
+            var result = new StringBuilder();
+            result.AppendLine(enumerable.Count.ToString(CultureInfo.InvariantCulture));
+
+            foreach (var permutation in enumerable)
+            {
+                result.AppendLine(String.Join(" ", permutation));
+            }
+
+            SaveResult(@"Results\rosalind_perm_results.txt", result.ToString());
         }
 
         /// <summary>
@@ -107,7 +139,7 @@ namespace Twainsoft.Lessons.Rosalind.App
 
         static void SaveResult(string path, string result)
         {
-            Console.WriteLine("The result is {0}.", result);
+            Console.WriteLine("The result is {0}", result);
 
             File.WriteAllText(path, result, Encoding.Default);
             Console.WriteLine("Result saved to '{0}'!", path);
