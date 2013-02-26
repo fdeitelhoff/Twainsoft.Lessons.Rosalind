@@ -1,19 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using Twainsoft.Bioinformatics;
 
 namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
-    [TestClass]
+    [TestFixture]
     public class DnaTests
     {
-        [TestMethod]
+        [Test]
         public void NucleotidesCountTest()
         {
             // Arrange
             var dna = new Dna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
-            var expectedResult = new Dictionary<char, int>() 
-            { 
+            var expectedResult = new Dictionary<char, int>
+                { 
                 { 'A', 20 }, { 'C', 12 }, { 'G', 17 }, { 'T', 21 }
             };
 
@@ -21,10 +21,10 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             var actualResult = dna.NucleotidesCount();
 
             // Assert
-            CollectionAssert.AreEqual(expectedResult, actualResult);
+            Assert.That(expectedResult, Is.EqualTo(actualResult));
         }
 
-        [TestMethod]
+        [Test]
         public void HammingDistanceTest()
         {
             // Arrange
@@ -36,7 +36,7 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             var mutationCount = dna.HammingDistance(mutatedDna);
 
             // Assert
-            Assert.AreEqual(expectedMutationCount, mutationCount);
+            Assert.That(expectedMutationCount, Is.EqualTo(mutationCount));
         }
     }
 }

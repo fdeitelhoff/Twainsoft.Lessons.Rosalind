@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Twainsoft.Bioinformatics;
 
 namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
-    [TestClass]
+    [TestFixture]
     public class RevcTests
     {
-        [TestMethod]
+        [Test]
         public void ReversedDnaTest()
         {
             // Arrange
@@ -17,7 +17,7 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             var resultDna = dna.ReverseComplementDna();
 
             // Assert
-            Assert.AreEqual(expectedDna, resultDna);
+            Assert.That(expectedDna, Is.EqualTo(resultDna));
         }
     }
 }

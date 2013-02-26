@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Twainsoft.Bioinformatics;
 
 namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
-    [TestClass]
+    [TestFixture]
     public class RnaTests
     {
-        [TestMethod]
+        [Test]
         public void TranscribeRnaTest()
         {
             // Arrange
@@ -17,7 +17,7 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             var resultRna = dna.TranscribeRna();
 
             // Assert
-            Assert.AreEqual(expectedRna, resultRna);
+            Assert.That(expectedRna, Is.EqualTo(resultRna));
         }
     }
 }

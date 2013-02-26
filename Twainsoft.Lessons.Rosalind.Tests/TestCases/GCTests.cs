@@ -1,14 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Twainsoft.Bioinformatics.Format;
 
 namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
-    [TestClass]
+    [TestFixture]
     public class GcTests
     {
-        [TestMethod]
-        [DeploymentItem(@"Data\GC\GC_SampleDataSet.txt", @"Data\GC")]
+        [Test]
         public void GcContentTests()
         {
             // Arrange
@@ -34,9 +33,9 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             highestGcRatio = Math.Round(highestGcRatio * 100, 6);
 
             // Assert
-            Assert.AreEqual<int>(entryCount, entries.Count);
-            Assert.AreEqual<decimal>(expectedGcRatio, highestGcRatio);
-            Assert.AreEqual<string>(expectedFastaLabel, highestFastaLabel);
+            Assert.That(entryCount, Is.EqualTo(entries.Count));
+            Assert.That(expectedGcRatio, Is.EqualTo(highestGcRatio));
+            Assert.That(expectedFastaLabel, Is.EqualTo(highestFastaLabel));
         }
     }
 }
