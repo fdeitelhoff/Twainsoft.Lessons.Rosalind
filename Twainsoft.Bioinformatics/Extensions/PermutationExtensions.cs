@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Twainsoft.Bioinformatics.Helper
+namespace Twainsoft.Bioinformatics.Extensions
 {
-    public static class Permutation
+    public static class PermutationExtensions
     {
         public static IEnumerable<IEnumerable<T>> Permute<T>(this IList<T> v)
         {

@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Twainsoft.Bioinformatics;
+using Twainsoft.Bioinformatics.Extensions;
 using Twainsoft.Bioinformatics.Format;
-using Twainsoft.Bioinformatics.Helper;
 
 namespace Twainsoft.Lessons.Rosalind.App
 {

@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Twainsoft.Bioinformatics.Helper;
+using Twainsoft.Bioinformatics.Extensions;
 
 namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
 {
     [TestFixture]
-    public class HelperTests
+    public class PermutationExtensionsTests
     {
         [Test]
-        public void PermutationTest()
+        public void PermTest()
         {
             // Arrange
             var permutate = new List<int> {1, 2, 3};

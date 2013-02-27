@@ -42,7 +42,7 @@
     <Compile Include="Dna.cs" />
     <Compile Include="Format\Fasta.cs" />
     <Compile Include="Format\FastaEntry.cs" />
-    <Compile Include="Helper\Permutation.cs" />
+    <Compile Include="Extensions\PermutationExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rna.cs" />
   </ItemGroup>

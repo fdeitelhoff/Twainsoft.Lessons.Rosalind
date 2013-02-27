@@ -62,7 +62,7 @@
     <Compile Include="TestCases\GcTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\DnaTests.cs" />
-    <Compile Include="TestCases\HelperTests.cs" />
+    <Compile Include="TestCases\PermutationExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Twainsoft.Bioinformatics\Twainsoft.Bioinformatics.csproj">
