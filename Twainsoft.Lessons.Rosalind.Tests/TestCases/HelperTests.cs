@@ -32,5 +32,40 @@ namespace Twainsoft.Lessons.Rosalind.Tests.TestCases
             Assert.That(expectedPermutationCount, Is.EqualTo(enumerable.Length));
             Assert.That(exptectedPermutations, Is.EquivalentTo(enumerable));
         }
+
+        [Test]
+        public void LexfTest()
+        {
+            // Arrange
+            var symbols = new List<char> { 'T', 'A', 'G', 'C' };
+            const int take = 2;
+            const int exptectedCombinationCount = 16;
+            var exptectedCombinations = new List<List<char>>
+                {
+                    new List<char> {'T', 'T'},
+                    new List<char> {'T', 'A'},
+                    new List<char> {'T', 'G'},
+                    new List<char> {'T', 'C'},
+                    new List<char> {'A', 'T'},
+                    new List<char> {'A', 'A'},
+                    new List<char> {'A', 'G'},
+                    new List<char> {'A', 'C'},
+                    new List<char> {'G', 'T'},
+                    new List<char> {'G', 'A'},
+                    new List<char> {'G', 'G'},
+                    new List<char> {'G', 'C'},
+                    new List<char> {'C', 'T'},
+                    new List<char> {'C', 'A'},
+                    new List<char> {'C', 'G'},
+                    new List<char> {'C', 'C'}
+                };
+
+            // Act
+            var combinations = symbols.CombineWithRepetitions(take).ToList();
+
+            // Assert
+            Assert.That(exptectedCombinationCount, Is.EqualTo(combinations.Count()));
+            Assert.That(exptectedCombinations, Is.EquivalentTo(combinations));
+        }
     }
 }

@@ -32,7 +32,31 @@ namespace Twainsoft.Lessons.Rosalind.App
             // Solve the PERM problem.
             SolvePerm();
 
+            // Solve the LEXF problem.
+            SolveLexf();
+
+            Console.WriteLine("All solutions calculated!");
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Solves the LEXF problem (http://rosalind.info/problems/lexf/).
+        /// </summary>
+        private static void SolveLexf()
+        {
+            var lines = File.ReadAllLines(@"Data\LEXF\rosalind_lexf.txt");
+            var symbols = lines[0].Trim().Replace(" ", "").ToList();
+            var take = Convert.ToInt32(lines[1].Trim());
+
+            var combinations = symbols.CombineWithRepetitions(take);
+
+            var result = new StringBuilder();
+            foreach (var combination in combinations)
+            {
+                result.AppendLine(String.Join("", combination));
+            }
+
+            SaveResult(@"Results\rosalind_lexf_results.txt", result.ToString());
         }
 
         /// <summary>
