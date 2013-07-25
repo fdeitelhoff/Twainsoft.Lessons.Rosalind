@@ -53,6 +53,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="TestCases\ProteinTests.cs" />
     <Compile Include="TestCases\RnaTests.cs" />
     <Compile Include="TestCases\RevcTests.cs" />
     <Compile Include="TestCases\GcTests.cs" />

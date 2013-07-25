@@ -35,8 +35,21 @@ namespace Twainsoft.Lessons.Rosalind.App
             // Solve the LEXF problem.
             SolveLexf();
 
+            // Solve the PROT problem.
+            SolveProt();
+
             Console.WriteLine("All solutions calculated!");
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Solves the PROT problem (http://rosalind.info/problems/prot/).
+        /// </summary>
+        private static void SolveProt()
+        {
+            var protein = new Rna(File.ReadAllText(@"Data\PROT\rosalind_prot.txt")).EncodeProtein();
+
+            SaveResult(@"Results\rosalind_prot_results.txt", protein.ToString());
         }
 
         /// <summary>
