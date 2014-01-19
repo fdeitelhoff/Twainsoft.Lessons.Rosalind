@@ -40,6 +40,11 @@ namespace Twainsoft.Bioinformatics
             return new Rna(Symbols.Replace('T', 'U'));
         }
 
+        public int HammingDistance(Dna dna)
+        {
+            return Symbols.Where((t, i) => t != dna.Symbols[i]).Count();
+        }
+
         public Dna ReverseComplementDna()
         {
             var reversedDna = new StringBuilder(Symbols.Length);
@@ -80,11 +85,6 @@ namespace Twainsoft.Bioinformatics
         public override string ToString()
         {
             return Symbols;
-        }
-
-        public int HammingDistance(Dna dna)
-        {
-            return Symbols.Where((t, i) => t != dna.Symbols[i]).Count();
         }
     }
 }
